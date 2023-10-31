@@ -84,6 +84,7 @@ void TextureConverter::SaveDDSTextureToFile()
 	assert(SUCCEEDED(hr));
 }
 
+
 std::wstring TextureConverter::StringToWString(const std::string& mString)
 {
 	// SJIS Å® wstring
