@@ -5,11 +5,12 @@
 class TextureConverter
 {
 public:
-	void ConvertTextureWICToDDS(const std::string& filePath);
+	void ConvertTextureWICToDDS(const std::string& filePath, int32_t numOptions = 0, char* options[] = nullptr);
+	static void OutputUsage();
 private:
 	void LoadWICTextureFromFile(const std::string& filePath);
 	void SeparateFilePath(const std::wstring& filePath);
-	void SaveDDSTextureToFile();
+	void SaveDDSTextureToFile(int32_t numOptions, char* options[]);
 	static std::wstring StringToWString(const std::string& mString);
 
 private:

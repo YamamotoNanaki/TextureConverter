@@ -16,6 +16,15 @@ enum Argument
 
 int32_t main(int32_t argc, char* argv[])
 {
+	//コマンドライン引数指定なし
+	if (argc < NumArgument)
+	{
+		//使い方表示
+		TextureConverter::OutputUsage();
+		return 0;
+	}
+
+
 	for (uint32_t i = 0; i < argc; i++)
 	{
 		cout << argv[i] << endl;
@@ -28,7 +37,10 @@ int32_t main(int32_t argc, char* argv[])
 
 	TextureConverter converter;
 
-	converter.ConvertTextureWICToDDS(argv[kFilePath]);
+	int32_t numOptions = argc - NumArgument;
+	char** options = argv + NumArgument;
+
+	converter.ConvertTextureWICToDDS(argv[kFilePath], numOptions, options);
 
 	CoUninitialize();
 
